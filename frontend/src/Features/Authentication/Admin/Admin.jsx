@@ -10,6 +10,17 @@ export default function Admin(){
                     </div>
                     <h1 className='font-bold text-2xl'>EduLearn</h1>
                 </div>
+                <div>
+                    <div>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <input type="text" />
+                    </div>
+                    <div>
+                        <button>Admin Login</button>
+                    </div>
+                </div>
             </form>
         </div>
     )
