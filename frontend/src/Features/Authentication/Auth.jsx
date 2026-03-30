@@ -5,30 +5,38 @@ import { FaBook } from "react-icons/fa"
 export default function Auth(){
     const [auth, setAuth] = useState(false)
     return(
-        <div>
-            <div>
-                <div className='flex items-center gap-3 h-10 '>
-                    <div className='h-10 w-10 flex justify-center items-center bg-linear-to-br from-yellow-500 to-green-400 p-1 rounded-xl'>
-                        <FaBook className='h-5 w-5 text-white'/>
+        <div className="flex h-screen w-screen">
+            <div className="hidden md:flex flex-col gap-5 lg:gap-10 h-full flex-1 pl-12 pr-10 py-6 lg:py-10 bg-linear-to-br  from-yellow-300 to-green-400 overflow-hidden">
+
+                <div className='flex items-center gap-2'>
+                    <div className='h-12 w-12 flex justify-center items-center bg-linear-to-br from-yellow-500 to-green-400 p-1 rounded-xl'>
+                        <FaBook className='h-6 w-6 text-white'/>
                     </div>
-                    <h1 className='font-bold text-2xl'>EduLearn</h1>
+                    <h1 className='font-bold text-3xl text-gray-900'>Smart Learn</h1>
                 </div>
-                <div>
-                    <h1>Ready to Level Up Your Skills?
-                        Welcome to EduLearn!
+
+                <div className="flex flex-col gap-2 ">
+                    <h1 className="font-bold text-3xl leading-tight text-gray-900">Ready to Level Up Your Skills?
+                        <br />
+                        Welcome to Smart Learn!
                     </h1>
-                    <p>Log in or create an account to start your learning journey today.</p>
+                    <p className="text-lg text-gray-700">Log in or create an account to start your learning journey today.</p>
                 </div>
-                <div>
-                    <img src="/Coding.svg"/>
+
+                <div className="w-full mt-auto flex justify-center">
+                    <img src="/Coding.svg" className="w-[80%] max-w-md"/>
                 </div>
             </div>
-            <div>
-                <button onClick={()=>setAuth(true)}>Sign In</button>
-                <button onClick={()=>setAuth(false)}>Sign Up</button>
-                {
-                    auth? (<Login onCreateAccount={()=>setAuth(false)}/>) : (<Signup/>)
-                }
+            <div className="flex-1 h-full flex flex-col justify-center items-center">
+                <div className="flex flex-col gap-3">
+                    <div className="flex justify-between items-center gap-1">
+                        <button onClick={()=>setAuth(false)} className={`flex-1 py-3 text-xl font-medium border-b-2 transition-colors ${auth ?'text-gray-500 border-gray-600': 'text-green-500 border-green-600'}`}>Sign In</button>
+                        <button onClick={()=>setAuth(true)} className={`flex-1 py-3 text-xl font-medium border-b-2 transition-colors ${auth ?'text-green-500 border-green-600' :'text-gray-500 border-gray-600'}`}>Sign Up</button>
+                    </div>
+                    {
+                        auth? (<Signup/>):(<Login onCreateAccount={()=>setAuth(true)}/>)
+                    }
+                </div>
             </div>
         </div>
     )
