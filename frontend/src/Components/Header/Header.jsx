@@ -6,13 +6,13 @@ import { useState } from 'react';
 export default function Header(){
     const[show, setShow] = useState(false);
     return(
-        <header className='relative top-0 z-50'>
-            <nav className='flex justify-between items-center h-16 px-4 border-b border-b-gray-300'>
-                <div className='flex items-center gap-2 h-10 '>
+        <header className='bg-white sticky top-0 z-50'>
+            <nav className='flex justify-between items-center h-16 px-4 border-b border-b-gray-300 gap-1'>
+                <div className='flex items-center gap-1 lg:gap-2 h-10 '>
                     <div className='h-10 w-10 flex justify-center items-center bg-linear-to-br from-yellow-500 to-green-400 p-1 rounded-xl'>
                         <Link to='/'><FaBook className='h-5 w-5 text-white'/></Link>
                     </div>
-                    <Link to='/'><h1 className='font-bold text-2xl'>Smart Learn</h1></Link>
+                    <Link to='/'><h1 className='font-bold text-lg lg:text-2xl'>Smart Learn</h1></Link>
                 </div>
 
                 <div className='hidden md:flex items-center justify-center gap-3 lg:gap-5'>
