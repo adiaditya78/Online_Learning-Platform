@@ -16,7 +16,7 @@ export default function Header(){
                 </div>
 
                 <div className='hidden md:flex items-center justify-center gap-3 lg:gap-5'>
-                    <NavLink to='#' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>Explore</NavLink>
+                    <NavLink to='/dashboard' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>Dashboard</NavLink>
 
                     <NavLink to='/categoties' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>Categories</NavLink>
 
@@ -38,7 +38,7 @@ export default function Header(){
                 </div>
             </nav>
             <div className={`${show ? "block":"hidden"} flex flex-col`}>
-                <NavLink to='#' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>Explore</NavLink>
+                <NavLink to='#' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>Dashboard</NavLink>
                 <NavLink to='/categoties' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>Categories</NavLink>
                 <NavLink to='/about' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>About</NavLink>
                 <NavLink to='/contact' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>Contact</NavLink>

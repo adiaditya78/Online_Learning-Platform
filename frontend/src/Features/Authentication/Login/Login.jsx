@@ -1,6 +1,7 @@
-export default function Login({onCreateAccount}){
+import { Link } from "react-router-dom"
+export default function Login(){
     return(
-        <div className="p-2 flex flex-col gap-2">
+        <form className="p-2 flex flex-col gap-2">
             <div>
                 <h3 className="font-normal text-gray-900 mb-1">Email Address</h3>
                 <input type="text" className="w-full border border-gray-600 rounded-md px-2 py-1" placeholder="you@example.com"/>
@@ -14,7 +15,7 @@ export default function Login({onCreateAccount}){
             {/* <div className=" flex justify-between">
                 <p> Or continue with</p>
             </div> */}
-            <div className="text-center text-sm">New to Smart Learn? <button onClick={onCreateAccount} className="text-green-600 cursor-pointer font-medium hover:underline">Create Account</button></div>
-        </div>
+            <div className="text-center text-sm">New to Smart Learn? <Link to='/signup' className="text-green-600 cursor-pointer font-medium hover:underline">Create Account</Link></div>
+        </form>
     )
 }
