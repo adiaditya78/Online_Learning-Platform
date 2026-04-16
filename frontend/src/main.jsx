@@ -9,12 +9,14 @@ import Auth from './Features/Authentication/Auth.jsx'
 import Home from './pages/Home/Home.jsx'
 import Login from './Features/Authentication/Login/Login.jsx'
 import Signup from './Features/Authentication/Signup/Signup.jsx'
+import CourseList from './Features/DashComponent/CourseList.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
         <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/courses' element={<CourseList/>}/>
       </Route>
       
       <Route element={<Auth/>}>

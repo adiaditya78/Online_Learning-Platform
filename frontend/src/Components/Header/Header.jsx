@@ -1,7 +1,6 @@
 import {Link, NavLink} from 'react-router-dom'
-import { FaBook } from "react-icons/fa";
+import { FaBook, FaBars } from "react-icons/fa";
 import { IoIosNotifications } from "react-icons/io";
-import { FaBars } from "react-icons/fa";
 import { useState } from 'react';
 export default function Header(){
     const[show, setShow] = useState(false);
@@ -18,7 +17,7 @@ export default function Header(){
                 <div className='hidden md:flex items-center justify-center gap-3 lg:gap-5'>
                     <NavLink to='/dashboard' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>Dashboard</NavLink>
 
-                    <NavLink to='/categoties' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>Categories</NavLink>
+                    <NavLink to='/courses' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>Courses</NavLink>
 
                     <NavLink to='/about' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>About</NavLink>
 
@@ -38,8 +37,8 @@ export default function Header(){
                 </div>
             </nav>
             <div className={`${show ? "block":"hidden"} flex flex-col`}>
-                <NavLink to='#' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>Dashboard</NavLink>
-                <NavLink to='/categoties' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>Categories</NavLink>
+                <NavLink to='/dashboard' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>Dashboard</NavLink>
+                <NavLink to='/courses' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>Categories</NavLink>
                 <NavLink to='/about' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>About</NavLink>
                 <NavLink to='/contact' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} px-4 py-2 font-medium`}>Contact</NavLink>
                 <div className='px-4 py-2'><input type="text" placeholder='Search Course' className='w-full h-9 border border-gray-300 rounded-lg bg-slate-100 px-3' /></div>
