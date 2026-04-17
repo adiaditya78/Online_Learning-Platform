@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 export default function Signup(){
     return(
-        <form className="p-2 flex flex-col gap-2">
+        <form className="p-2 flex flex-col gap-2 w-full">
             <div>
                 <h3 className="font-normal text-gray-900 mb-1">Name</h3>
                 <input type="text" className="w-full border border-gray-600 rounded-md px-2 py-1" placeholder="Your Name"/>
@@ -9,6 +9,10 @@ export default function Signup(){
             <div>
                 <h3 className="font-normal text-gray-900 mb-1">Email Address</h3>
                 <input type="email" className="w-full border border-gray-600 rounded-md px-2 py-1" placeholder="you@example.com"/>
+            </div>
+            <div>
+                <h3 className="font-normal text-gray-900 mb-1">UserName</h3>
+                <input type="email" className="w-full border border-gray-600 rounded-md px-2 py-1" placeholder='username'/>
             </div>
             <div>
                 <h3 className="font-normal text-gray-900 mb-1">Password</h3>
