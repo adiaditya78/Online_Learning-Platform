@@ -31,7 +31,7 @@ export default function Auth(){
                     </div>
                     <h1 className='font-bold text-3xl text-gray-900'>Smart Learn</h1>
                 </div>
-                <div className="flex flex-col gap-3 w-3/4 mt-20 md:mt-0">
+                <div className="flex flex-col gap-3 w-3/4 lg:w-2/4 mt-20 md:mt-0">
                     <div className="flex justify-between items-center text-center gap-1">
                         <NavLink to="/login" className={({isActive})=>`${isActive ?'text-green-500 border-green-600':'text-gray-500 border-gray-600'} flex-1 py-3 text-xl font-medium border-b-2 transition-colors `}>Sign In</NavLink>
                         <NavLink to='/signup' className={({isActive})=>`${isActive ?'text-green-500 border-green-600' :'text-gray-500 border-gray-600'} flex-1 py-3 text-xl font-medium border-b-2 transition-colors`}>Sign Up</NavLink>
