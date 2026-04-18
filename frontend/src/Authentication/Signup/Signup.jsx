@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import {Link} from 'react-router-dom'
-import api from '../../../API/axios'
+import api from '../../API/axios'
 export default function Signup(){
     const [formData, setformData] = useState(
         {
