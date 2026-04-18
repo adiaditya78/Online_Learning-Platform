@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom"
 export default function Login(){
+    const handleLogin = ()=>{
+
+    }
     return(
-        <form className="p-2 flex flex-col gap-2">
+        <form className="p-2 flex flex-col gap-2" onSubmit={handleLogin}>
             <div>
                 <h3 className="font-normal text-gray-900 mb-1">Email Address</h3>
                 <input type="text" className="w-full border border-gray-600 rounded-md px-2 py-1" placeholder="you@example.com"/>

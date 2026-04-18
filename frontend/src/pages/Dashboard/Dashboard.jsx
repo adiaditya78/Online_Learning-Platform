@@ -1,6 +1,6 @@
-import StartCard from '../../Features/DashComponent/StartCard'
-import ProgressCard from '../../Features/DashComponent/ProgressCard'
-import CourseList from '../../Features/DashComponent/CourseList'
+import StartCard from './Components/StartCard'
+import ProgressCard from './Components/ProgressCard'
+import CourseList from './Components/CourseList'
 export default function Dashboard() {
     return (
         <div className='flex flex-col gap-3 bg-gray-100 py-2 md:py-5 px-3 md:px-10'>
