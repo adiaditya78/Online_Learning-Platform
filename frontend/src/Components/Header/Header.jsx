@@ -27,9 +27,9 @@ export default function Header(){
 
                     <NavLink to='/courses' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>Courses</NavLink>
 
-                    <NavLink to='/about' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>About</NavLink>
+                    <NavLink to='/addresource' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>Add Resource</NavLink>
 
-                    <NavLink to='/contact' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>Contact</NavLink>
+                    <NavLink to='/about' className={({isActive}) =>`${isActive? 'text-green-700': 'text-gray-700'} font-medium`}>About</NavLink>
 
                 </div>
                 <div className='hidden md:flex lg:w-90'><input type="text" placeholder='Search Course' className='w-full h-9 border border-gray-300 rounded-lg bg-slate-100 px-3' /></div>     

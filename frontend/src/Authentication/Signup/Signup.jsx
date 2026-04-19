@@ -23,6 +23,7 @@ export default function Signup(){
         try {
             const response = await api.post("/api/users/signup", formData);
             setSuccessRes(response.data["message"]);
+            window.location.href ="/";
         } catch (error) {
             setErrorResponse(error.response?.data["message"] || "Something went wrong!");
         }

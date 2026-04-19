@@ -32,7 +32,7 @@ export default function Home(){
                     <FeatureCard icon={<FaListUl className='text-2xl text-white'/>} title="Instant Quizzes" description="Test your knowledge instantly. Generate and take quick quizzes based on your learning materials to reinforce concepts." color="from-green-400 to-green-500"/>
                 </div>
             </section>
-            <section className='py-12 px-6 bg-linear-to-br from-yellow-300 to-green-400 text-center flex flex-col items-center justify-center'>
+            <section className='py-12 px-6 bg-gray-100 text-center flex flex-col items-center justify-center'>
                 <h2 className='text-3xl md:text-4xl font-bold text-gray-900 mb-4 '>Ready to start your first course?</h2>
                 <Link to="/signup" className='px-8 py-2 bg-gray-900 text-white font-bold text-lg rounded-xl shadow-xl hover:bg-gray-800 transition-colors'>Create Your Account Now</Link>
             </section>

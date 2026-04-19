@@ -2,13 +2,18 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { RouterProvider, Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import Layout from './Layout.jsx'
-import Dashboard from './pages/Dashboard/Dashboard.jsx'
-import Home from './pages/Home/Home.jsx'
+
 import Auth from './Authentication/Auth.jsx'
 import Login from './Authentication/Login/Login.jsx'
 import Signup from './Authentication/Signup/Signup.jsx'
+
+import Layout from './Layout.jsx'
+import Dashboard from './pages/Dashboard/Dashboard.jsx'
+import Home from './pages/Home/Home.jsx'
 import CourseList from './pages/Dashboard/Components/CourseList.jsx'
+import AddResource from './pages/AddResource/AddResource.jsx'
+import About from './pages/About/About.jsx'
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
@@ -16,6 +21,8 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/courses' element={<CourseList/>}/>
+        <Route path='/about' element={<About/>}/>
+        <Route path='/addresource' element={<AddResource/>}/>
       </Route>
       
       <Route element={<Auth/>}>
