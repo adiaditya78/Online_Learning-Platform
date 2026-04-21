@@ -8,9 +8,9 @@ import Login from './Authentication/Login/Login.jsx'
 import Signup from './Authentication/Signup/Signup.jsx'
 
 import Layout from './Layout.jsx'
-import Dashboard from './pages/Dashboard/Dashboard.jsx'
 import Home from './pages/Home/Home.jsx'
-import CourseList from './pages/Dashboard/Components/CourseList.jsx'
+import Dashboard from './pages/Dashboard/Dashboard.jsx'
+import Courses from './pages/Courses/Courses.jsx'
 import AddResource from './pages/AddResource/AddResource.jsx'
 import About from './pages/About/About.jsx'
 
@@ -20,9 +20,9 @@ const router = createBrowserRouter(
       <Route path='/' element={<Layout />}>
         <Route index element={<Home />} />
         <Route path='/dashboard' element={<Dashboard/>}/>
-        <Route path='/courses' element={<CourseList/>}/>
-        <Route path='/about' element={<About/>}/>
+        <Route path='/courses' element={<Courses/>}/>
         <Route path='/addresource' element={<AddResource/>}/>
+        <Route path='/about' element={<About/>}/>
       </Route>
       
       <Route element={<Auth/>}>

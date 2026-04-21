@@ -40,12 +40,23 @@ const loginUser = async(req, res)=>{
         }
         const isCorrectPassword = await user.isPasswordCorrect(password);
         if(!isCorrectPassword){
-            res.status(401).json({message:"wrong password"})
+            return res.status(401).json({message:"wrong password"})
         }
         
         const generatedToken = user.generateAccessToken();
-        res.status(202).json({message:"Login Successfully",
-            accessToken : generatedToken
+        
+        const options = {
+            httpOnly: true,
+            secure: true
+        }
+
+        res
+        .status(202)
+        .cookie("accessToken", generatedToken, options)
+        .json({
+            message:"Login Successfully",
+            accessToken : generatedToken,
+            user: { _id: user._id, fullName: user.fullName, username: user.username, email: user.email }
         })
 
     } catch (error) {
@@ -53,4 +64,19 @@ const loginUser = async(req, res)=>{
     }
 }
 
-export {registerUser, loginUser};
+const logoutUser = async (req, res) => {
+    const options = {
+        httpOnly: true,
+        secure: true
+    }
+    return res
+    .status(200)
+    .clearCookie("accessToken", options)
+    .json({message: "User logged out successfully"});
+}
+
+const getCurrentUser = async (req, res) => {
+    return res.status(200).json({message: "Current user fetched successfully", user: req.user});
+}
+
+export {registerUser, loginUser, logoutUser, getCurrentUser};
