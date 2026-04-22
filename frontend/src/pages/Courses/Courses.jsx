@@ -1,8 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import {FaSearch} from 'react-icons/fa'
+import api from '../../API/axios'
 
 export default function Courses(){
-    const [loading, setLoading] = useState();
+    const [courses, setCourses] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            try {
+                const response = await api.get("/api/course/");
+                
+                setCourses(response.data.data || response.data); 
+            } catch (error) {
+                console.error("Error fetching courses:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchCourses();
+    }, []);
+
+    const filteredCourses = courses.filter(course => 
+        course.title?.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     return(
         <div className='bg-slate-50 min-h-screen py-16 px-6 md:px-16 lg:px-24'>
             <div className='max-w-7xl mx-auto space-y-10'>
@@ -14,8 +36,8 @@ export default function Courses(){
                     <div className='relative w-full md:w-80'>
                         <FaSearch className='absolute left-4 top-3.5 text-gray-400' />
                         <input type="text" className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:border-green-400 focus:ring-1 focus:ring-green-400" placeholder="Search courses..."
-                            // value={searchTerm}
-                            // onChange={(e) => setSearchTerm(e.target.value)}
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
                 </div>
