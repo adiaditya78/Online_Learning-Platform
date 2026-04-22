@@ -4,7 +4,7 @@ import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 
-router.use(verifyJWT); // Secure all enrollment routes
+router.use(verifyJWT);
 
 router.route("/").post(enrollUser).get(getUserEnrollments);
 router.route("/:enrollmentId").patch(updateProgress);
