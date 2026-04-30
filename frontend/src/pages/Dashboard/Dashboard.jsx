@@ -3,7 +3,7 @@ import ProgressCard from './Components/ProgressCard'
 import CourseList from './Components/CourseList'
 export default function Dashboard() {
     return (
-        <div className='flex flex-col gap-3 bg-gray-100 py-2 md:py-5 px-3 md:px-10'>
+        <div className='flex flex-col gap-3 md:gap-5 bg-gray-100 pt-10 lg:pt-15 px-3 md:px-10'>
             <div className='min-h-fit rounded-2xl'>
                 <StartCard/>
             </div>

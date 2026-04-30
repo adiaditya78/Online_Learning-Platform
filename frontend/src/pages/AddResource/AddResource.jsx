@@ -1,13 +1,15 @@
 import { useState } from "react"
 import api from "../../API/axios";
+import toast from 'react-hot-toast';
 export default function AddResource(){
     const[url, setUrl] = useState("");
-
     const handleSave = async()=>{
         try {
-            const response = await api.post("/api/course/addCourse", {url : url})
+            const response = await api.post("/api/videos/addVideo", {url : url});
+            toast.success(response.data.message);
+            setUrl("");
         } catch (error) {
-            console.log(error);
+            toast.error("Failed to add video")
         }
     }
 

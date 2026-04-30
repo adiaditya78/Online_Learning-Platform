@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { User } from "./user.model.js";
-import { Course } from "./course.model.js";
+import { Video } from "./video.model.js";
 
 const enrollmentSchema = new mongoose.Schema(
     {
@@ -11,7 +11,7 @@ const enrollmentSchema = new mongoose.Schema(
         },
         course:{
             type: mongoose.Schema.Types.ObjectId,
-            ref : "Course",
+            ref : "Video",
             required : true
         },
         progressPercentage:{

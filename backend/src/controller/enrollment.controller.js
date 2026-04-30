@@ -1,12 +1,12 @@
 import { Enrollment } from "../models/enrollment.model.js";
-import { Course } from "../models/course.model.js";
+import { Video } from "../models/video.model.js";
 
 const enrollUser = async (req, res) => {
     try {
         const { courseId } = req.body;
         if (!courseId) return res.status(400).json({ message: "Course ID is required" });
 
-        const course = await Course.findById(courseId);
+        const course = await Video.findById(courseId);
         if (!course) return res.status(404).json({ message: "Course not found" });
 
         const existingEnrollment = await Enrollment.findOne({

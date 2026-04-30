@@ -1,4 +1,4 @@
-import { Course } from "../models/course.model.js";
+import { Video } from "../models/video.model.js";
 import getVideoDetails from "../services/youtubeAPICall.js";
 
 
@@ -19,7 +19,7 @@ function parseDuration(durationStr) {
     return hours * 3600 + minutes * 60 + seconds;
 }
 
-const addCourse = async(req, res) =>{
+const addVideo = async(req, res) =>{
     try {
         const {url} = req.body;
         const videoId = extractVideoId(url);
@@ -28,15 +28,16 @@ const addCourse = async(req, res) =>{
         if(!VideoDetails || !VideoDetails.items || VideoDetails.items.length == 0){
             return res.status(404).json({message : "Video not found!"});
         }
+        console.log(VideoDetails);
         
         const videoData = VideoDetails.items[0];
         const title = videoData.snippet.title;
         const description = videoData.snippet.description;
-        const thumbnailUrl = videoData.snippet.thumbnails?.url || videoData.snippet.thumbnails?.default?.url;
+        const thumbnailUrl = videoData.snippet.thumbnails?.url || videoData.snippet.thumbnails?.high?.url;
         const durationStr = videoData.contentDetails.duration;
         const totalDuration = parseDuration(durationStr);
 
-        const newCourse = await Course.create(
+        const newVideo = await Video.create(
             {
                 title,
                 description,
@@ -45,32 +46,42 @@ const addCourse = async(req, res) =>{
                 totalDuration
             }
         );
-        res.status(201).json({message:"Course Added"});
+        res.status(201).json({message:"Video Added Successfully"});
     }
     catch (error) {
-        return res.status(500).json({message : "Server Error"});     
+        return res.status(500).json({message : "Server Error"});  
     }
 }
 
-const getAllCourses = async(req, res)=>{
+const getAllVideos = async(req, res)=>{
     try {
-        const courses = await Course.find({});
-        res.status(200).json({message : "Courses fetched", data : courses});
+        const videos = await Video.find({});
+        res.status(200).json({message : "Video fetched", data : videos});
     } catch (error) {
         res.status(500).json({message : "Sever Error"});
     }
 }
 
-const getCourseById = async(req, res) =>{
+const getVideoById = async(req, res) =>{
     try{
         const {id} = req.params;
-        const course = await Course.findById(id);
-        if(!course) return res.status(404).json({message : "Course not found"});
-        res.status(200).json({message : "Course Details", data : course});
+        const video = await Video.findById(id);
+        if(!video) return res.status(404).json({message : "Video not found"});
+        res.status(200).json({message : "Video Details", data : video});
     }
     catch(error){
         res.status(500).json({message : "Sever Error"});
     }
 }
 
-export { addCourse, getAllCourses, getCourseById };
+const deleteVideoById = async (req, res) =>{
+    try {
+        const {id} = req.params;
+        const deleted = await Video.findByIdAndDelete(id);
+        res.status(200).json({message : "Video Successfully Deleted!"});
+    } catch (error) {
+        res.status(500).json({message : "Server Error!"})
+    }
+}
+
+export { addVideo, getAllVideos, getVideoById, deleteVideoById };

@@ -14,11 +14,11 @@ app.use(cookieParser());
 
 
 import userRouter from "./routes/user.routes.js";
-import courseRouter from "./routes/course.routes.js"
+import videoRouter from "./routes/video.routes.js"
 import enrollmentRouter from "./routes/enrollment.routes.js"
 
 app.use('/api/users', userRouter);
-app.use('/api/course', courseRouter);
+app.use('/api/videos', videoRouter);
 app.use('/api/enrollments', enrollmentRouter);
 
 app.get('/', ()=>{
